@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaArrowsToDot } from "react-icons/fa6";
+import PopCard from "../popcard/PopCard";
 
 
 function Product() {
 
     const [hoveredProduct, setHoveredProduct] = React.useState(null);
+
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const handleProductClick = (product) => {
+        setSelectedProduct(product);
+      };
+
 
     const products = [
         {
@@ -75,10 +82,12 @@ function Product() {
                                 <div className='flex flex-col gap-5 justify-center items-center'>
                                     <p className='font-semibold 2xl:text-2xl'>{cardInfo.productName}</p>
                                     <p className=''>{cardInfo.price}</p>
-                                    <button><FaArrowsToDot /></button>
+                                    <button onClick={() => handleProductClick(cardInfo)}><FaArrowsToDot /></button>
                                     <button>Add cart</button>
                                 </div>
                             </div>
+                            {selectedProduct && <PopCard product={selectedProduct} onClose={() => setSelectedProduct(null)} />}
+
 
                         </div>
                     ))}

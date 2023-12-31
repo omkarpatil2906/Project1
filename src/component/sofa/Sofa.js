@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import Navbar from "../navbar/Navbar";
-import { FaArrowsToDot } from "react-icons/fa6";
+import { FaArrowsToDot } from "react-icons/fa6"; 
+import PopCard from "../popcard/PopCard";
+
+const context = createContext();
 
 
 function Sofa() {
 
     const [hoveredProduct, setHoveredProduct] = useState(null);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    
+    const handleProductClick = (product) => {
+        setSelectedProduct(product);
+      };
 
     const initialSofa = [
 
@@ -98,15 +106,13 @@ function Sofa() {
         const sortType = e.target.value;
 
         if (sortType === "AtoZ") {
-            const sortedSofa = initialSofa.slice().sort((a, b) => a.productName.localeCompare(b.productName)
-            )
+            const sortedSofa = initialSofa.slice().sort((a, b) => a.productName.localeCompare(b.productName))
 
             setSofa(sortedSofa)
         }
 
         if (sortType === "ZtoA") {
-            const sortedSofa = initialSofa.slice().sort((a, b) => b.productName.localeCompare(a.productName)
-            );
+            const sortedSofa = initialSofa.slice().sort((a, b) => b.productName.localeCompare(a.productName));
             setSofa(sortedSofa)
 
         }
@@ -129,7 +135,7 @@ function Sofa() {
 
     }
     return (
-        <div>
+        <context.Provider value={{ hoveredProduct, setHoveredProduct, selectedProduct, setSelectedProduct }}>
             <div className="lg:shadow-md ">
                 <Navbar />
             </div>
@@ -165,14 +171,13 @@ function Sofa() {
 
                         {
                             sofa.map((items) => (
-                                <div key={items.id} className="relative" onMouseEnter={() => setHoveredProduct(items.id)} onMouseLeave={() => setHoveredProduct(null)}>
-                                    <div className={`bg-white w-[93%] border border-gray-300 ml-3 my-3 ${hoveredProduct === items.id ? 'hidden' : ''}`}>
+                                <div key={items.id} className="relative"   onMouseEnter={() => setHoveredProduct(items.id)} onMouseLeave={() => setHoveredProduct(null)}>
+                                    <div className={`bg-white w-[93%] border border-gray-300 ml-3 my-3 ${hoveredProduct === items.id ? 'hidden' : ''}`} onClick={() => handleProductClick(items)}>
                                         <img src={items.image} alt="" className='w-[400px] h-[400px] md:h-[250px] object-cover p-2  md:px-0 xl:p-2' />
                                         <div className='border-t border-gray-300 '>
                                             <p className='m-2 font-semibold 2xl:text-2xl '>{items.productName}</p>
                                             <div className="flex justify-between mt-7">
                                                 <p className='m-2'>{items.price}</p>
-                                                <button className="m-2 bg-[#222831] text-white rounded-xl py-1 text-sm px-4">Add cart</button>
                                             </div>
                                         </div>
                                     </div>
@@ -182,11 +187,12 @@ function Sofa() {
                                         <div className='flex flex-col gap-5 justify-center items-center'>
                                             <p className='font-semibold 2xl:text-2xl'>{items.productName}</p>
                                             <p className=''>{items.price}</p>
-                                            <button><FaArrowsToDot /></button>
+                                            <button onClick={() => handleProductClick(items)}><FaArrowsToDot /></button>
                                             <button>Add cart</button>
                                         </div>
 
                                     </div>
+                                    {selectedProduct && <PopCard product={selectedProduct} onClose={() => setSelectedProduct(null)} />}
                                 </div>
                             ))
                         }
@@ -195,8 +201,9 @@ function Sofa() {
 
                 </div>
             </div>
-        </div>
+        </context.Provider>
     )
 }
 
 export default Sofa
+

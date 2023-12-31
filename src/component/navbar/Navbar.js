@@ -4,10 +4,16 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {Link} from 'react-router-dom'
+import AddToCard from '../addTocard/AddToCard';
+
 
 function Navbar() {
   const [open, setOpen] = useState(false)
+  const [cartOpen, setCartOpen] = useState(false); 
 
+  const handleCartButtonClick = () => {
+    setCartOpen(!cartOpen);
+  };
   return (
     <div className=''>
       <div className='flex bg-white p-5 lg:bg-transparent py-3 justify-between  lg:justify-around items-center 2xl:p-12 font-Raleway font-thin '>
@@ -37,12 +43,12 @@ function Navbar() {
           <li className='py-1 px-4 cursor-pointer rounded-full hover:bg-blue-950 hover:transition-all hover:duration-1000 hover:text-white'><Link to="/termsCondition">T & C</Link></li>
           <li className='flex items-center gap-5'>
             <button ><SearchIcon style={{ fontSize: 30 }}/> </button>
-             |
-            <ShoppingCartIcon style={{ fontSize: 30 }}/>
+             | <button  onClick={handleCartButtonClick}><ShoppingCartIcon style={{ fontSize: 30 }}/> </button>
+            
           </li>
         </ul>
       </div>
-
+      {cartOpen && <AddToCard/> }
 
     </div>
   )

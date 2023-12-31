@@ -5,7 +5,8 @@ import Home from './component/home/Home';
 import Sofa from './component/sofa/Sofa'
 import Chairs from './component/chairs/Chairs';
 import Contact from './component/contact/Contact';
-import TermsCondition from './terms/TermsCondition';
+import TermsCondition from './component/terms/TermsCondition';
+import AddToCard from './component/addTocard/AddToCard';
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='/chairs' element={<Chairs/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/termsCondition' element={<TermsCondition/>}/>
+        
 
 
       </Routes>

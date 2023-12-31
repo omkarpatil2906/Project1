@@ -1,5 +1,6 @@
 import React from 'react'
-import Navbar from '../component/navbar/Navbar'
+import Navbar from '../navbar/Navbar'
+
 
 
 function TermsCondition() {
@@ -7,7 +8,7 @@ function TermsCondition() {
     <div>
       <div className="lg:shadow-md ">
 
-        <Navbar />
+        <Navbar/>
       </div>
       <div className='flex justify-center items-center'>
       <div className='my-12 w-[80%] border border-black rounded-xl'>
