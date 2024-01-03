@@ -22,7 +22,6 @@ function Navbar() {
           <h1 className='mt-6 lg:text-xl font-bold 2xl:text-3xl'>LIVING Mode</h1>
         </div>
 
-
         {/* ----------------------------------------------------------------------------------------------*/}
         <button onClick={() => setOpen(!open)} className='flex lg:hidden '>
           {open ? <CloseIcon style={{ fontSize: 40 }} /> : <MenuIcon style={{ fontSize: 40 }} />}
@@ -44,14 +43,12 @@ function Navbar() {
           <li className='flex items-center gap-5'>
             <button ><SearchIcon style={{ fontSize: 30 }}/> </button>
              | <button  onClick={handleCartButtonClick}><ShoppingCartIcon style={{ fontSize: 30 }}/> </button>
-            
           </li>
         </ul>
       </div>
       {cartOpen && <AddToCard/> }
-
+      
     </div>
   )
 }
-
 export default Navbar
