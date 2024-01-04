@@ -6,8 +6,8 @@ import Sofa from './component/sofa/Sofa'
 import Chairs from './component/chairs/Chairs';
 import Contact from './component/contact/Contact';
 import TermsCondition from './component/terms/TermsCondition';
-import AddToCard from './component/addTocard/AddToCard';
 import ProductDetails from './component/productdetails/ProductDetails';
+import AddToCard from './component/addTocard/AddToCard';
 
 
 
@@ -17,17 +17,14 @@ function App() {
   return (
     <div>
       <Routes>
-
         <Route path='/' element={<Home />} />
         <Route path='/sofa' element={<Sofa />} />
         <Route path='/chairs' element={<Chairs/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/termsCondition' element={<TermsCondition/>}/>
-        <Route path="/sofa/:productId" element={<ProductDetails/>} />
-        <Route path="/chairs/:productId" element={<ProductDetails/>} />
-
-          
-       
+        <Route path="/sofa/:id" element={<ProductDetails/>} />
+        <Route path="/chairs/:id" element={<ProductDetails/>} />
+        <Route path='/add_card_products' element={<AddToCard/>}/>
       </Routes>
 
       <Footer />

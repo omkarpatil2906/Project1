@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Navbar from "../navbar/Navbar";
-import { FaArrowsToDot } from "react-icons/fa6"; 
+import { FaArrowsToDot } from "react-icons/fa6";
 import initialSofa from "../apiData/SofaData";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 
 function Sofa() {
 
     const [hoveredProduct, setHoveredProduct] = useState(null);
-    
+
 
     const [sofa, setSofa] = useState(initialSofa)
 
@@ -82,29 +82,34 @@ function Sofa() {
 
                         {
                             sofa.map((items) => (
-                                <div key={items.id} className="relative"   onMouseEnter={() => setHoveredProduct(items.id)} onMouseLeave={() => setHoveredProduct(null)}>
-                                    <div className={`bg-white w-[93%] border border-gray-300 ml-3 my-3 ${hoveredProduct === items.id ? 'hidden' : ''}`} >
-                                        <img src={items.image} alt="" className='w-[400px] h-[400px] md:h-[250px] object-cover p-2  md:px-0 xl:p-2' />
-                                        <div className='border-t border-gray-300 '>
-                                            <p className='m-2 font-semibold 2xl:text-2xl '>{items.productName}</p>
-                                            <div className="flex justify-between mt-7">
-                                                <p className='m-2'>{items.price}</p>
+                                <div key={items.id} className="relative" onMouseEnter={() => setHoveredProduct(items.id)} onMouseLeave={() => setHoveredProduct(null)}>
+                                    <Link to={`/sofa/${items.id}`} state={{ items }}>
+
+                                        <div className={`bg-white w-[93%] border border-gray-300 ml-3 my-3 ${hoveredProduct === items.id ? 'hidden' : ''}`} >
+                                            <img src={items.image} alt="" className='w-[400px] h-[400px] md:h-[250px] object-cover p-2  md:px-0 xl:p-2' />
+                                            <div className='border-t border-gray-300 '>
+                                                <p className='m-2 font-semibold 2xl:text-2xl '>{items.productName}</p>
+                                                <div className="flex justify-between mt-7">
+                                                    <p className='m-2'>{items.price}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
 
                                     <div className={`absolute top-0 bg-black opacity-70 text-white w-[93%] border flex flex-col justify-center cursor-pointer items-center border-gray-300 ml-3 my-3 ${hoveredProduct !== items.id ? 'hidden' : ''}`} style={{ height: hoveredProduct === items.id ? 'calc(100% - 25px)' : '0' }}>
 
                                         <div className='flex flex-col gap-5 justify-center items-center'>
                                             <p className='font-semibold 2xl:text-2xl'>{items.productName}</p>
                                             <p className=''>{items.price}</p>
-                                            <Link to={`/sofa/${items.id}`}><button><FaArrowsToDot /></button></Link>
+                                            <Link to={`/sofa/${items.id}`} state={{ items }}>
+                                                <button><FaArrowsToDot /></button>
+                                            </Link>
                                             
                                             <button>Add cart</button>
                                         </div>
 
                                     </div>
-                               
+
                                 </div>
                             ))
                         }

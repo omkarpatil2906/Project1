@@ -4,26 +4,30 @@ const initialSofa = [
         id: 1,
         image: "https://images.unsplash.com/photo-1519961655809-34fa156820ff?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c29mYXxlbnwwfHwwfHx8MA%3D%3D",
         productName: 'zlfredo 1 Seat Sofa',
-        price: "$20.00"
+        price: "$20.00",
+        stars:'★★★☆☆'
     },
     {
         id: 2,
         image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHNvZmF8ZW58MHx8MHx8fDA%3D",
         productName: 'Aafredo 1 Seat Sofa',
-        price: "$20.00"
+        price: "$20.00",
+        stars:'★★★☆☆'
     },
     {
         id: 3,
         image: "https://images.unsplash.com/photo-1586158291800-2665f07bba79?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fHNvZmF8ZW58MHx8MHx8fDA%3D",
         productName: 'bAlfredo 1 Seat Sofa',
-        price: "$20.00"
+        price: "$20.00",
+        stars:'★★★☆☆'
     },
 
     {
         id: 4,
         image: "https://images.unsplash.com/photo-1634822929277-0c51ca0e8846?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         productName: 'Alfredo 1 Seat Sofa',
-        price: "$20.00"
+        price: "$20.00",
+        stars:'★★★☆☆'
 
     },
 
@@ -31,7 +35,8 @@ const initialSofa = [
         id: 5,
         image: "https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         productName: 'Alfredo 1 Seat Sofa',
-        price: "$20.00"
+        price: "$20.00",
+        stars:'\u2605\u2605\u2605\u2606\u2606',
     },
 
 
@@ -58,7 +63,8 @@ const initialSofa = [
         id: 9,
         image: "https://living-mode-demo.zohocommerce.com/product-images/product-image-06-01.jpg/2279153000000070032/300x300",
         productName: 'Alfredo 1 Seat Sofa',
-        price: "$30.00"
+        price: "$30.00",
+        stars:'★★★☆☆'
     },
     {
         id: 10,
@@ -82,3 +88,4 @@ const initialSofa = [
 ]
 
 export default initialSofa;
+

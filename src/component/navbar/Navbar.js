@@ -4,16 +4,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {Link} from 'react-router-dom'
-import AddToCard from '../addTocard/AddToCard';
+
 
 
 function Navbar() {
   const [open, setOpen] = useState(false)
-  const [cartOpen, setCartOpen] = useState(false); 
-
-  const handleCartButtonClick = () => {
-    setCartOpen(!cartOpen);
-  };
+ 
   return (
     <div className=''>
       <div className='flex bg-white p-5 lg:bg-transparent py-3 justify-between  lg:justify-around items-center 2xl:p-12 font-Raleway font-thin '>
@@ -26,7 +22,7 @@ function Navbar() {
         <button onClick={() => setOpen(!open)} className='flex lg:hidden '>
           {open ? <CloseIcon style={{ fontSize: 40 }} /> : <MenuIcon style={{ fontSize: 40 }} />}
         </button>
-        <ul className={open ? "fixed left-[20%] h-screen top-[10%] w-[80%] bg-white ease-in-out lg:hidden ":"ease-in-out right-[-100%] w-full fixed  bg-white lg:hidden "}>
+        <ul className={open ? "fixed left-[20%] h-screen top-[10%] w-[80%] bg-black ease-in-out lg:hidden ":"ease-in-out right-[-100%] w-full fixed  bg-white lg:hidden "}>
           <li className='m-2  cursor-pointer border p-3'><Link to="/">Home</Link> </li>
           <li className='m-2 cursor-pointer border p-3'><Link to="/sofa">Sofa</Link> </li>
           <li className='m-2 cursor-pointer border p-3'><Link to="/chairs">Chairs</Link> </li>
@@ -42,11 +38,12 @@ function Navbar() {
           <li className='py-1 px-4 cursor-pointer rounded-full hover:bg-blue-950 hover:transition-all hover:duration-1000 hover:text-white'><Link to="/termsCondition">T & C</Link></li>
           <li className='flex items-center gap-5'>
             <button ><SearchIcon style={{ fontSize: 30 }}/> </button>
-             | <button  onClick={handleCartButtonClick}><ShoppingCartIcon style={{ fontSize: 30 }}/> </button>
+            
+             | <Link to="/add_card_products"><button><ShoppingCartIcon style={{ fontSize: 30 }}/> </button></Link> 
           </li>
         </ul>
       </div>
-      {cartOpen && <AddToCard/> }
+     
       
     </div>
   )

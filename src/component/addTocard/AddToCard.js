@@ -1,15 +1,28 @@
-import React from 'react';
-function AddToCard() {
-    return (
-        <div className='absolute ml-auto w-1/2  ease-in-out transition-all duration-800  '>
+import React ,{useEffect} from 'react';
+import { useLocation } from 'react-router-dom';
+import Navbar from '../navbar/Navbar';
+import Rating from '@mui/material/Rating';
 
-        <div className='h-screen bg-gray-700 '>
-            <h2>Your Cart</h2>
+function ProductDetails() {
+  const { state1 } = useLocation();
+  const { items } = state1 || {};
 
-        </div>
-        </div>
-    );
+  
+  useEffect(() => {
+    // Scroll to the top when the component mounts
+    window.scrollTo(0, 0);
+  }, []); 
+
+
+  return items ? (
+    <div>
+      <Navbar/>
+      <div>
+        <p>{items.price}</p>
+      </div>
+     
+    </div>
+  ) : "No item matched/found.";
 }
 
-export default AddToCard;
-
+export default ProductDetails;

@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import Navbar from '../navbar/Navbar'
 import { FaArrowsToDot } from "react-icons/fa6";
 import initialChairs from '../apiData/ChairData';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 function Chairs() {
 
     const [hoveredProduct, setHoveredProduct] = useState(null)
 
-   
+
 
     const [chairs, setChairs] = useState(initialChairs)
 
@@ -101,23 +101,19 @@ function Chairs() {
                                             <div className='flex flex-col gap-5 justify-center items-center'>
                                                 <p className='font-semibold 2xl:text-2xl'>{items.productName}</p>
                                                 <p className=''>{items.price}</p>
-                                                <Link to={`/chairs/${items.id}`}><button><FaArrowsToDot /></button></Link>
-                                                
+                                                <Link to={`/chairs/${items.id}`} state={{ items }}>
+                                                    <button><FaArrowsToDot /></button>
+                                                </Link>
                                                 <button>Add cart</button>
                                             </div>
-
                                         </div>
                                     </div>
                                 ))
                             }
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
-
         </div>
     )
 }
