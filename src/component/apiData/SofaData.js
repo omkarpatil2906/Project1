@@ -87,5 +87,6 @@ const initialSofa = [
     },
 ]
 
+
 export default initialSofa;
 
