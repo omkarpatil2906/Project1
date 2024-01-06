@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Navbar from '../navbar/Navbar'
 import { FaArrowsToDot } from "react-icons/fa6";
 import initialChairs from '../apiData/ChairData';
 import { Link } from 'react-router-dom'
+import { MyContext } from '../../App';
 
 
 function Chairs() {
 
     const [hoveredProduct, setHoveredProduct] = useState(null)
+
+    const {handleAddProduct} = useContext(MyContext)
+
 
 
 
@@ -69,9 +73,7 @@ function Chairs() {
 
                 <div>
                     <div className="flex justify-end lg:mr-24 my-12">
-                        <label className="p-2">Sorted by:-</label><select name="" id="" onChange={handleOnChage} className="border p-2">
-                            {/* <option value="">Most Popular</option> */}
-                            {/* <option value="">Most Recent</option> */}
+                        <label className="p-2">Sorted by:-</label><select  onChange={handleOnChage} className="border p-2">
                             <option value="highTolow">Price: High To Low</option>
                             <option value="lowTohigh">Price: Low To High</option>
                             <option value="AtoZ">A To Z</option>
@@ -104,7 +106,7 @@ function Chairs() {
                                                 <Link to={`/chairs/${items.id}`} state={{ items }}>
                                                     <button><FaArrowsToDot /></button>
                                                 </Link>
-                                                <button>Add cart</button>
+                                                <Link to="/"><button onClick={() => handleAddProduct(items)}>Add to Cart</button></Link>
                                             </div>
                                         </div>
                                     </div>

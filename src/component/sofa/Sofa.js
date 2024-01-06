@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../navbar/Navbar";
 import { FaArrowsToDot } from "react-icons/fa6";
 import initialSofa from "../apiData/SofaData";
 import { Link } from 'react-router-dom'
+import { MyContext } from "../../App";
 
 
 
 function Sofa() {
 
     const [hoveredProduct, setHoveredProduct] = useState(null);
-
-
     const [sofa, setSofa] = useState(initialSofa)
+    const {handleAddProduct} = useContext(MyContext)
 
     const handleOnChage = (e) => {
         const sortType = e.target.value;
@@ -105,7 +105,7 @@ function Sofa() {
                                                 <button><FaArrowsToDot /></button>
                                             </Link>
                                             
-                                            <button>Add cart</button>
+                                            <Link to="/"><button onClick={() => handleAddProduct(items)} >Add to Cart</button></Link>
                                         </div>
 
                                     </div>

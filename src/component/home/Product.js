@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FaArrowsToDot } from "react-icons/fa6";
 import { Link } from "react-router-dom"
+import { MyContext } from '../../App';
+
 
 
 function Product() {
 
     const [hoveredProduct, setHoveredProduct] = useState(null);
-   
+    const {handleAddProduct} = useContext(MyContext)
 
     const products = [
         {
@@ -79,9 +81,10 @@ function Product() {
                                     <p className=''>{items.price}</p>
 
                                     <Link to={`/product/${items.id}`} state={{ items }}>
-                                        <button><FaArrowsToDot /></button>
+                                        <button><FaArrowsToDot/></button>
                                     </Link>
-                                    <button >Add to Cart</button>
+                                    <Link to="/"><button onClick={() => handleAddProduct(items)}>Add to Cart</button></Link>
+                                    
                                 </div>
                             </div>
                         </div>

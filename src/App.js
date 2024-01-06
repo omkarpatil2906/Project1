@@ -1,38 +1,61 @@
 
-import { Routes, Route } from 'react-router-dom';
-import Footer from './component/footer/Footer';
-import Home from './component/home/Home';
-import Sofa from './component/sofa/Sofa'
-import Chairs from './component/chairs/Chairs';
-import Contact from './component/contact/Contact';
-import TermsCondition from './component/terms/TermsCondition';
-import ProductDetails from './component/productdetails/ProductDetails';
-import AddToCart from './component/addtocart/AddToCart';
 
+import React, { createContext, useState } from 'react'
+import RoutingPages from './component/rounting/RoutingPages';
 
-
-
+export const MyContext = createContext()
 
 function App() {
+  const [cartItems, setCartItems]= useState([])
+
+    const handleAddProduct = (product) =>{
+        const  ProductExist = cartItems.find((item) => item.id === ProductExist.id);
+
+        if(ProductExist){
+            setCartItems(cartItems.map((item) => item.id === product.id ? {...ProductExist , quantity : ProductExist.quantity + 1} : item ))
+        }
+        else
+        {
+            setCartItems([...cartItems,{...product, quantity:1}])
+            alert("Added Successfuly")
+        }
+    }
+
+     
+//     const haddleRemoveProduct=(product)=>{
+//       const ProductEXist = cartItems.find((item)=> item.id === product.id) ;
+  
+//       if(ProductEXist.quantity === 1){
+//         setCartItems(cartItems.filter((item)=>item.id !== product.id))
+//       }
+//       else{
+//         setCartItems(
+//           cartItems.map((item)=> item.id === product.id ? {...ProductEXist,quantity:ProductEXist.quantity - 1}:item)
+//         )
+//       }
+//     }
+  
+  
+//     const handleCartCleareance=()=>{
+//       setCartItems([])
+  
+//     }
+
+//     const removeUniqueProduct =(index)=>{
+//       setCartItems(cartItems.filter((item,i)=> i !== index ))
+
+// }
 
   return (
     <div>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/sofa' element={<Sofa />} />
-        <Route path='/chairs' element={<Chairs/>}/>
-        <Route path='/contact' element={<Contact/>}/>
-        <Route path='/termsCondition' element={<TermsCondition/>}/>
-        <Route path="/sofa/:id" element={<ProductDetails/>} />
-        <Route path="/chairs/:id" element={<ProductDetails/>} />
-        <Route path="/product/:id" element={<ProductDetails/>} />
-        <Route path="/best_collection/:id" element={<ProductDetails/>} />
-      
-        
-      </Routes>
-      <Footer />
+       <MyContext.Provider value={{cartItems, handleAddProduct}}>
+           <RoutingPages/>
+        </MyContext.Provider>
     </div>
   );
 }
 
 export default App;
+
+
+// , handleCartCleareance,haddleRemoveProduct,removeUniqueProduct
