@@ -100,7 +100,7 @@ function Sofa() {
 
                                         <div className='flex flex-col gap-5 justify-center items-center'>
                                             <p className='font-semibold 2xl:text-2xl'>{items.productName}</p>
-                                            <p className=''>{items.price}</p>
+                                            <p className=''>₹{items.price}</p>
                                             <Link to={`/sofa/${items.id}`} state={{ items }}>
                                                 <button><FaArrowsToDot /></button>
                                             </Link>
