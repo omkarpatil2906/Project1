@@ -37,15 +37,26 @@ function ProductDetails() {
   return items ? (
     <div>
       <Navbar />
-      <div className='flex justify-center items-center  bg-gray-300 h-[88vh] -z-50'>
-        <div className=' lg:w-[60%] lg:space-x-4 p-4 lg:flex lg:gap-6 bg-white'>
-          <div>
-            <img src={items.image} className='object-cover h-[300px] lg:h-[440px] w-[440px] ' alt="" />
+      <div className='flex justify-center items-center  h-screen'>
+        <div className=' lg:flex  bg-white'>
+          <div className='w-[100%] flex space-y-3 flex-col justify-center items-center'>
+            <img src={items.image.img} className='w-[80%]' alt="" />
+            <div className='flex gap-2 w-[80%]'>
+              <img src={items.image.img1}  className='h-12' alt="" />
+              <img src={items.image.img2}  className='h-12' alt="" />
+              <img src={items.image.img3}  className='h-12' alt="" />
+              <img src={items.image.img4}  className='h-12' alt="" />
+              <img src={items.image.img5}  className='h-12' alt="" />
+              <img src={items.image.img6}  className='h-12' alt="" />
+              <img src={items.image.img7}  className='h-12' alt="" />
+              <img src={items.image.img8}  className='h-12' alt="" />
+
+            </div>
           </div>
 
-          <div className='py-2 space-y-2 '>
+          <div className='py-2 space-y-2 w-[100%] '>
             <p> <span className='font-bold'>Names : </span> {items.productName}</p>
-            <p><span className='font-bold'>Price : </span>  {items.price}</p>
+            <p><span className='font-bold'>Price : </span>  ₹ {items.price}</p>
 
             <div className='flex gap-2 '>
               <span className='font-bold'>Rating :  </span>

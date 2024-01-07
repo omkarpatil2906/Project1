@@ -6,27 +6,119 @@ function BestCollection() {
     const products = [
         {
             id: 1,
-            image: "https://living-mode-demo.zohocommerce.com/product-images/product-image-06-01.jpg/2279153000000070032/300x300",
+            image: {
+                img:"",
+                img1:"",
+                img2:"",
+                img3:"",
+                img4:"",
+                img5:"",
+                img6:"",
+                img7:"",
+                img8:"",
+            },
             productName: 'Alfredo 1 Seat Sofa',
-            price: "$30.00"
+            price: 2994 ,
+
+            productDetails:{
+                brand:"",
+                assembly:"",
+                dimensionCM:"",
+                dimensionIC:"",
+                material:"",
+                room:"",
+                height:"",
+                warranty:"",
+                weight:"",
+                sku:"",
+            }
         },
         {
             id: 2,
-            image: "https://living-mode-demo.zohocommerce.com/product-images/product-image-08-05.jpg/2279153000000071019/300x300",
+            image: {
+                img:"",
+                img1:"",
+                img2:"",
+                img3:"",
+                img4:"",
+                img5:"",
+                img6:"",
+                img7:"",
+                img8:"",
+            },
             productName: 'Alfredo 1 Seat Sofa',
-            price: "$13.00"
+            price: 2994 ,
+
+            productDetails:{
+                brand:"",
+                assembly:"",
+                dimensionCM:"",
+                dimensionIC:"",
+                material:"",
+                room:"",
+                height:"",
+                warranty:"",
+                weight:"",
+                sku:"",
+            }
         },
         {
             id: 3,
-            image: "https://living-mode-demo.zohocommerce.com/product-images/product-image-07-04.jpeg/2279153000000069979/300x300",
+            image: {
+                img:"",
+                img1:"",
+                img2:"",
+                img3:"",
+                img4:"",
+                img5:"",
+                img6:"",
+                img7:"",
+                img8:"",
+            },
             productName: 'Alfredo 1 Seat Sofa',
-            price: "$10.00"
+            price: 2994 ,
+
+            productDetails:{
+                brand:"",
+                assembly:"",
+                dimensionCM:"",
+                dimensionIC:"",
+                material:"",
+                room:"",
+                height:"",
+                warranty:"",
+                weight:"",
+                sku:"",
+            }
         },
         {
             id: 4,
-            image: "https://living-mode-demo.zohocommerce.com/product-images/product-image-05-01.jpg/2279153000000070016/300x300",
+            image: {
+                img:"",
+                img1:"",
+                img2:"",
+                img3:"",
+                img4:"",
+                img5:"",
+                img6:"",
+                img7:"",
+                img8:"",
+            },
             productName: 'Alfredo 1 Seat Sofa',
-            price: "$10.00"
+            price: 2994 ,
+
+            productDetails:{
+                brand:"",
+                assembly:"",
+                dimensionCM:"",
+                dimensionIC:"",
+                material:"",
+                room:"",
+                height:"",
+                warranty:"",
+                weight:"",
+                sku:"",
+            }
         },
     ]
     return (
