@@ -27,22 +27,20 @@ function Sofa() {
             setSofa(sortedSofa)
 
         }
-
         if (sortType === "lowTohigh") {
             const sortedSofa = initialSofa.slice().sort((a, b) =>
-                parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1))
+              parseFloat(String(a.price).slice(1)) - parseFloat(String(b.price).slice(1))
             );
-            setSofa(sortedSofa)
-
-        }
-
-        if (sortType === "highTolow") {
+            setSofa(sortedSofa);
+          }
+          
+          if (sortType === "highTolow") {
             const sortedSofa = initialSofa.slice().sort((a, b) =>
-                parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1))
+              parseFloat(String(b.price).slice(1)) - parseFloat(String(a.price).slice(1))
             );
-            setSofa(sortedSofa)
-
-        }
+            setSofa(sortedSofa);
+          }
+          
 
     }
     return (
@@ -86,7 +84,7 @@ function Sofa() {
                                             <div className='border-t border-gray-300 '>
                                                 <p className='m-2 font-semibold 2xl:text-2xl '>{items.productName}</p>
                                                 <div className="flex justify-between mt-7">
-                                                    <p className='m-2'>{items.price}</p>
+                                                    <p className='m-2'> ₹ {items.price}</p>
                                                 </div>
                                             </div>
                                         </div>
