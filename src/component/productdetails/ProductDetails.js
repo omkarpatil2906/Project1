@@ -12,20 +12,13 @@ function ProductDetails() {
   const { items } = state || {};
   const [selectedImage, setSelectedImage] = useState(items.image.img);
   
-
   //rating star use mui
   const [hover, setHover] = React.useState(-1);
   const [value, setValue] = React.useState(2);
 
-  
-
-
-
   const handleThumbnailClick = (thumbnail) => {
     setSelectedImage(thumbnail);
   };
-
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -47,7 +40,6 @@ function ProductDetails() {
     return `${value} Star${value !== 1 ? 's' : ''},${labels[value]}`;
   }
 
-
   const handleSlideLeft = () => {
     const slider = document.getElementById('slider');
     if (slider) {
@@ -61,7 +53,6 @@ function ProductDetails() {
       slider.scrollLeft += 180;
     }
   };
-
 
   return items ? (
     <div>

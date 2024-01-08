@@ -95,7 +95,7 @@ function Sofa() {
                                                 <button><FaArrowsToDot /></button>
                                             </Link>
                                             
-                                            <Link to="/"><button onClick={() => handleAddProduct(items)} >Add to Cart</button></Link>
+                                            <Link to="/sofa"><button onClick={() => handleAddProduct(items)} >Add to Cart</button></Link>
                                         </div>
                                     </div>
                                 </div>

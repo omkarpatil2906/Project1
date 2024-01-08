@@ -2,13 +2,14 @@
 
 import React, { createContext, useState } from 'react'
 import RoutingPages from './component/rounting/RoutingPages';
+import Swal from 'sweetalert2';
 
 export const MyContext = createContext()
 
 function App() {
   const [cartItems, setCartItems]= useState([])
 
-  const handleAddProduct = (product) => {
+  const handleAddProduct = (product ) => {
     const productExist = cartItems.find((item) => item.id === product.id);
   
     if (productExist) {
@@ -21,10 +22,13 @@ function App() {
       );
     } else {
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
-      alert("Added Successfully");
-
-      
-      
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
     }
    };
   

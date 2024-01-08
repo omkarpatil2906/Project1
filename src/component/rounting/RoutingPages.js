@@ -8,6 +8,7 @@ import Contact from '../contact/Contact'
 import TermsCondition from '../terms/TermsCondition'
 import ProductDetails from '../productdetails/ProductDetails'
 import Footer from '../footer/Footer'
+import AddToCart from '../addtocart/AddToCart'
 
 function RoutingPages() {
   return (
@@ -22,6 +23,7 @@ function RoutingPages() {
         <Route path="/chairs/:id" element={<ProductDetails/>} />
         <Route path="/product/:id" element={<ProductDetails/>} />
         <Route path="/best_collection/:id" element={<ProductDetails/>} />
+        <Route path="/addtocart" element={<AddToCart/>}/>
       </Routes>
       <Footer />
       

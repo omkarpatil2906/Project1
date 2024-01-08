@@ -9,20 +9,17 @@ import AddToCart from '../addtocart/AddToCart';
 function Navbar() {
   const [open, setOpen] = useState(false)
   const [showSearch, setShowSearch] = useState(false);
-  const [cartOpen, setCartOpen] = useState(false);
+ 
 
   const toggleSearch = () => {
     setShowSearch(!showSearch);
   };
 
-  const toggleCart = () => {
-    setCartOpen(!cartOpen);
-  };
-
+ 
   return (
     <div className=''>
       <div className='bg-slate-100 flex justify-end  lg:hidden'>
-        <button onClick={toggleCart} className='pr-2'><ShoppingCartIcon style={{ fontSize: 20 }} /> </button>
+        <button className='pr-2'><ShoppingCartIcon style={{ fontSize: 20 }} /> </button>
       </div>
       <div className='flex bg-white p-5 lg:bg-transparent py-3 justify-between  lg:justify-around items-center 2xl:p-12 font-Raleway font-thin '>
         <div className='flex '>
@@ -56,11 +53,11 @@ function Navbar() {
             {showSearch && (
               <input type="text" placeholder="Search..." className="outline-none border-b-2 border-blue-950 py-1 px-2" />)}
               <button onClick={toggleSearch}><SearchIcon style={{fontSize:30}}/></button>
-            | <button onClick={toggleCart}><ShoppingCartIcon style={{fontSize:30}}/></button>
+            | <Link to="/addtocart"><button ><ShoppingCartIcon style={{fontSize:30}}/></button></Link> 
           </li>
         </ul>
       </div>
-      {cartOpen && <AddToCart isOpen={cartOpen} onClose={toggleCart} />}
+      
     </div>
   )
 }
