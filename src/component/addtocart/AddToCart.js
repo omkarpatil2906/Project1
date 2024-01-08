@@ -33,7 +33,7 @@ function AddToCart({ onClose }) {
             {
               cartItems.map((item,i) => (
                 <div  className=' flex justify-between items-center h-20 p-2' key={item.id}>
-                    <img src={item?.image} className='h-16 w-16' alt="" />
+                    <img src={item?.image.img} className='h-16 w-16' alt="" />
                     <div>
                     <h1>{item?.productName}</h1>
                     <h1>₹{item?.price}</h1>

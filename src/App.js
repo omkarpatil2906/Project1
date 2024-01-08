@@ -22,11 +22,13 @@ function App() {
     } else {
       setCartItems([...cartItems, { ...product, quantity: 1 }]);
       alert("Added Successfully");
+
+      
+      
     }
-  };
+   };
   
 
-     
     const haddleRemoveProduct=(product)=>{
       let ProductExist = cartItems.find((item)=> item.id === product.id) ;
   

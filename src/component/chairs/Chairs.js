@@ -91,7 +91,7 @@ function Chairs() {
                                     <div key={items.id} className="relative" onMouseEnter={() => setHoveredProduct(items.id)} onMouseLeave={() => setHoveredProduct(null)}>
 
                                         <div className={`bg-white w-[93%] border border-gray-300 ml-3 my-3 ${hoveredProduct === items.id ? 'hidden' : ''}`}>
-                                            <img src={items.image} alt="" className='w-[400px] h-[400px] md:h-[250px] object-cover p-2  md:px-0 xl:p-2' />
+                                            <img src={items.image.img} alt="" className='w-[400px] h-[400px] md:h-[250px] object-cover p-2  md:px-0 xl:p-2' />
                                             <div className='border-t border-gray-300 '>
                                                 <p className='m-2 font-semibold 2xl:text-2xl'>{items.productName}</p>
                                                 <p className='mt-12 m-2'>{items.price}</p>

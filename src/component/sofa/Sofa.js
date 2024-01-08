@@ -28,16 +28,14 @@ function Sofa() {
 
         }
         if (sortType === "lowTohigh") {
-            const sortedSofa = initialSofa.slice().sort((a, b) =>
-              parseFloat(String(a.price).slice(1)) - parseFloat(String(b.price).slice(1))
-            );
+            const sortedSofa = initialSofa.slice().sort((a, b) => a.price - b.price);
             setSofa(sortedSofa);
           }
           
+         
+
           if (sortType === "highTolow") {
-            const sortedSofa = initialSofa.slice().sort((a, b) =>
-              parseFloat(String(b.price).slice(1)) - parseFloat(String(a.price).slice(1))
-            );
+            const sortedSofa = initialSofa.slice().sort((a, b) => b.price - a.price);
             setSofa(sortedSofa);
           }
           
@@ -78,23 +76,21 @@ function Sofa() {
                             sofa.map((items) => (
                                 <div key={items.id} className="relative" onMouseEnter={() => setHoveredProduct(items.id)} onMouseLeave={() => setHoveredProduct(null)}>
                                     <Link to={`/sofa/${items.id}`} state={{ items }}>
-
                                         <div className={`bg-white w-[93%] border border-gray-300 ml-3 my-3 ${hoveredProduct === items.id ? 'hidden' : ''}`} >
                                             <img src={items.image.img} alt="" className='w-[400px] h-[400px] md:h-[250px] object-fit p-2  md:px-0 xl:p-2' />
                                             <div className='border-t border-gray-300 '>
                                                 <p className='m-2 font-semibold 2xl:text-2xl '>{items.productName}</p>
                                                 <div className="flex justify-between mt-7">
-                                                    <p className='m-2'> ₹ {items.price}</p>
+                                                    <p className='m-2'> {items.price}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </Link>
 
                                     <div className={`absolute top-0 bg-black opacity-70 text-white w-[93%] border flex flex-col justify-center cursor-pointer items-center border-gray-300 ml-3 my-3 ${hoveredProduct !== items.id ? 'hidden' : ''}`} style={{ height: hoveredProduct === items.id ? 'calc(100% - 25px)' : '0' }}>
-
                                         <div className='flex flex-col gap-5 justify-center items-center'>
                                             <p className='font-semibold 2xl:text-2xl text-center w-[80%]'>{items.productName}</p>
-                                            <p className=''>₹{items.price}</p>
+                                            <p className=''>{items.price}</p>
                                             <Link to={`/sofa/${items.id}`} state={{ items }}>
                                                 <button><FaArrowsToDot /></button>
                                             </Link>
