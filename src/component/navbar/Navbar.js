@@ -1,25 +1,33 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Badge from '@mui/material/Badge';
 import { Link } from 'react-router-dom'
-import AddToCart from '../addtocart/AddToCart';
+import { MyContext } from '../../App';
+
 
 function Navbar() {
   const [open, setOpen] = useState(false)
   const [showSearch, setShowSearch] = useState(false);
- 
+  const { cartItems } = useContext(MyContext)
 
   const toggleSearch = () => {
-    setShowSearch(!showSearch);
+    setShowSearch(!showSearch); 
   };
 
- 
+  
   return (
     <div className=''>
       <div className='bg-slate-100 flex justify-end  lg:hidden'>
-        <button className='pr-2'><ShoppingCartIcon style={{ fontSize: 20 }} /> </button>
+        <Link to="/addtocart">
+          <button className='z-0'>
+            <Badge badgeContent={cartItems.length === 0 ? "" : cartItems.length} color="primary" sx={{marginTop:"12px"}} >
+              <ShoppingCartIcon style={{ fontSize: 30 }} />
+            </Badge>
+          </button>
+        </Link>
       </div>
       <div className='flex bg-white p-5 lg:bg-transparent py-3 justify-between  lg:justify-around items-center 2xl:p-12 font-Raleway font-thin '>
         <div className='flex '>
@@ -28,11 +36,11 @@ function Navbar() {
         </div>
         {/* ----------------------------------------------------------------------------------------------*/}
         <button onClick={() => setOpen(!open)} className='flex lg:hidden '>
-          {<MenuIcon style={{fontSize:40}}/>}
+          {<MenuIcon style={{ fontSize: 40 }} />}
         </button>
-        <ul className={open ? "fixed left-[20%] h-screen top-0 w-[80%] bg-white ease-in-out lg:hidden " : "ease-in-out right-[-100%] w-full fixed  bg-white lg:hidden "}>
+        <ul className={open ? "fixed left-[20%] top-[8%] h-screen w-[80%] bg-white ease-in-out lg:hidden " : "ease-in-out right-[-100%] w-full fixed  bg-white lg:hidden "}>
           <div className='grid justify-end '>
-            <button onClick={()=>setOpen(false)}><CloseIcon style={{fontSize:40}}/></button>
+            <button onClick={() => setOpen(false)}><CloseIcon style={{ fontSize: 40 }} /></button>
           </div>
           <div className='mt-20'>
             <li className='m-2 cursor-pointer border p-3'><Link to="/">Home</Link> </li>
@@ -52,12 +60,17 @@ function Navbar() {
           <li className='flex items-center gap-5'>
             {showSearch && (
               <input type="text" placeholder="Search..." className="outline-none border-b-2 border-blue-950 py-1 px-2" />)}
-              <button onClick={toggleSearch}><SearchIcon style={{fontSize:30}}/></button>
-            | <Link to="/addtocart"><button ><ShoppingCartIcon style={{fontSize:30}}/></button></Link> 
+            <button onClick={toggleSearch}><SearchIcon style={{ fontSize: 30 }} /></button>
+            | <Link to="/addtocart">
+              <button>
+                <Badge badgeContent={cartItems.length === 0 ? "" : cartItems.length} color="primary" >
+                  <ShoppingCartIcon style={{ fontSize: 30 }} />
+                </Badge>
+              </button>
+            </Link>
           </li>
         </ul>
       </div>
-      
     </div>
   )
 }

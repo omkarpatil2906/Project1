@@ -82,19 +82,19 @@ function ProductDetails() {
             <p className='font-Raleway'>{items.productName}</p>
             <p className='font-Raleway'>{items.productBrand}</p>
             <p className='font-Libre'> ₹ {items.price}</p>
-            <div className='flex gap-2 font-Robot'>
+            <div className='flex gap-2 font-Robot z-0'>
               <Rating name="hover-feedback" value={value} precision={0.5} getLabelText={getLabelText} onChange={(event, newValue) => { setValue(newValue); }} onChangeActive={(event, newHover) => { setHover(newHover); }} emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />} />
               {value !== null && (<Box>{labels[hover !== -1 ? hover : value]}</Box>)}
             </div>
 
             <div className='flex gap-3 py-6'>
-              <Link to="/"><button className=' border  border-[#222831] p-2 px-3 lg:px-5 font-Raleway' onClick={() => handleAddProduct(items)}>ADD TO CART</button></Link>
-              <button className=' border border-black bg-[#222831] text-white p-2 px-6 font-Raleway lg:px-12'>BUY NOW</button>
+              <Link to="/"><button className='text-xs border  border-[#222831] p-2 px-3 lg:px-5 font-Raleway' onClick={() => handleAddProduct(items)}>ADD TO CART</button></Link>
+              <button className='text-xs border border-black bg-[#222831] text-white p-2 px-6 font-Raleway lg:px-12'>BUY NOW</button>
             </div>
 
             <hr />
 
-            <div>
+            <div className='py-12 lg:px-0'>
               <h1 className='font-bold font-Playfair text-xl'>Product Details</h1>
               <div className='grid grid-cols-2 gap-7 text-xs font-Libre'>
                 <div className='py-3'>
