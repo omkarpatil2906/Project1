@@ -24,6 +24,7 @@ function RoutingPages() {
         <Route path="/product/:id" element={<ProductDetails/>} />
         <Route path="/best_collection/:id" element={<ProductDetails/>} />
         <Route path="/addtocart" element={<AddToCart/>}/>
+        <Route path='buy_now' element={<AddToCart/>}/>
       </Routes>
       <Footer />
       

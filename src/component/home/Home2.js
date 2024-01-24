@@ -13,7 +13,7 @@ function Home2() {
 
                 <div className='m-2 grid lg:grid-cols-2 gap-3 2xl:gap-12 '>
                     <div className='relative h-[220px] lg:h-[66%] '>
-                        <img src="https://static.zohocdn.com/sites/stock-images/images/zpstock-image-737.jpg" className='h-full w-full object-cover'  alt="" />
+                        <img src="https://static.zohocdn.com/sites/stock-images/images/zpstock-image-737.jpg" className='h-full w-full object-cover  rounded-lg'  alt="" />
 
                         <div className='absolute  inset-0 flex flex-col items-end justify-center  text-right p-6 lg:p-12'>
                             <h1 className='text-3xl font-bold lg:text-5xl 2xl:text-8xl font-Playfair '>Living Room Decors</h1>
@@ -24,7 +24,7 @@ function Home2() {
 
                     <div className=''>
                         <div className='relative text-right  h-[220px] lg:h-[66%] '>
-                            <img src="https://static.zohocdn.com/sites/stock-images/images/zpstock-image-738.jpg" className='h-full w-full object-cover' alt="" />
+                            <img src="https://static.zohocdn.com/sites/stock-images/images/zpstock-image-738.jpg" className='h-full w-full object-cover rounded-lg' alt="" />
                             <div className='absolute  inset-0 flex flex-col items-end justify-center  text-right p-6 lg:p-12'>
                                 <h1 className='text-3xl font-bold lg:text-5xl 2xl:text-8xl font-Playfair '>Living Room Decors</h1>
                                 <p className='lg:text-xl lg:my-2 xl:my-6 2xl:text-4xl font-Raleway'>Unique and theme based furniture. Comfort and vibrant colors in one.</p>

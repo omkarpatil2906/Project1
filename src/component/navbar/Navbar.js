@@ -17,17 +17,10 @@ function Navbar() {
     setShowSearch(!showSearch); 
   };
 
-  
   return (
     <div className=''>
       <div className='bg-slate-100 flex justify-end  lg:hidden'>
-        <Link to="/addtocart">
-          <button className='z-0'>
-            <Badge badgeContent={cartItems.length === 0 ? "" : cartItems.length} color="primary" sx={{marginTop:"12px"}} >
-              <ShoppingCartIcon style={{ fontSize: 30 }} />
-            </Badge>
-          </button>
-        </Link>
+       
       </div>
       <div className='flex bg-white p-5 lg:bg-transparent py-3 justify-between  lg:justify-around items-center 2xl:p-12 font-Raleway font-thin '>
         <div className='flex '>
@@ -35,10 +28,16 @@ function Navbar() {
           <h1 className='mt-6 lg:text-xl font-bold 2xl:text-3xl'>LIVING Mode</h1>
         </div>
         {/* ----------------------------------------------------------------------------------------------*/}
-        <button onClick={() => setOpen(!open)} className='flex lg:hidden '>
+        
+        <button onClick={() => setOpen(!open)} className='flex items-center gap-3 lg:hidden '>
+        <Link to="/addtocart" className='z-0'>
+            <Badge badgeContent={cartItems.length === 0 ? "" : cartItems.length} color="primary" >
+              <ShoppingCartIcon style={{ fontSize: 30 }} />
+            </Badge>
+        </Link>
           {<MenuIcon style={{ fontSize: 40 }} />}
         </button>
-        <ul className={open ? "fixed left-[20%] top-[8%] h-screen w-[80%] bg-white ease-in-out lg:hidden " : "ease-in-out right-[-100%] w-full fixed  bg-white lg:hidden "}>
+        <ul className={open ? "fixed top-0 left-[20%] h-screen w-[80%] bg-white ease-in-out duration-700 lg:hidden " : "ease-in-out right-[-100%] w-full fixed  bg-white lg:hidden "}>
           <div className='grid justify-end '>
             <button onClick={() => setOpen(false)}><CloseIcon style={{ fontSize: 40 }} /></button>
           </div>
@@ -52,18 +51,18 @@ function Navbar() {
         </ul>
         {/*  ---------------------------------------------------------------------------------------------- */}
         <ul className="hidden lg:flex lg:justify-between lg:gap-12  text-sm transition-all 2xl:text-2xl ">
-          <li className='py-1 px-4 cursor-pointer rounded-full hover:bg-blue-950 hover:transition-all hover:duration-1000 hover:text-white'><Link to="/">Home</Link></li>
-          <li className='py-1 px-4 cursor-pointer rounded-full hover:bg-blue-950 hover:transition-all hover:duration-1000 hover:text-white'><Link to="/sofa">Sofa</Link></li>
-          <li className='py-1 px-4 cursor-pointer rounded-full hover:bg-blue-950 hover:transition-all hover:duration-1000 hover:text-white'><Link to="/chairs">Chairs</Link></li>
-          <li className='py-1 px-4 cursor-pointer rounded-full hover:bg-blue-950 hover:transition-all hover:duration-1000 hover:text-white'><Link to="/contact">Contact</Link> </li>
-          <li className='py-1 px-4 cursor-pointer rounded-full hover:bg-blue-950 hover:transition-all hover:duration-1000 hover:text-white'><Link to="/termsCondition">T & C</Link></li>
+          <li className='py-2 px-4  cursor-pointer rounded-full hover:bg-blue-950 hover:transition-all hover:duration-1000 hover:text-white'><Link to="/">Home</Link></li>
+          <li className='py-2 px-4 cursor-pointer rounded-full hover:bg-blue-950 hover:transition-all hover:duration-1000 hover:text-white'><Link to="/sofa">Sofa</Link></li>
+          <li className='py-2 px-4 cursor-pointer rounded-full hover:bg-blue-950 hover:transition-all hover:duration-1000 hover:text-white'><Link to="/chairs">Chairs</Link></li>
+          <li className='py-2 px-4 cursor-pointer rounded-full hover:bg-blue-950 hover:transition-all hover:duration-1000 hover:text-white'><Link to="/contact">Contact</Link> </li>
+          <li className='py-2 px-4 cursor-pointer rounded-full hover:bg-blue-950 hover:transition-all hover:duration-1000 hover:text-white'><Link to="/termsCondition">T & C</Link></li>
           <li className='flex items-center gap-5'>
             {showSearch && (
               <input type="text" placeholder="Search..." className="outline-none border-b-2 border-blue-950 py-1 px-2" />)}
             <button onClick={toggleSearch}><SearchIcon style={{ fontSize: 30 }} /></button>
             | <Link to="/addtocart">
               <button>
-                <Badge badgeContent={cartItems.length === 0 ? "" : cartItems.length} color="primary" >
+                <Badge badgeContent={cartItems.length === 0 ? "" : cartItems.length} color="success" >
                   <ShoppingCartIcon style={{ fontSize: 30 }} />
                 </Badge>
               </button>

@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaArrowsToDot } from "react-icons/fa6";
 import {Link} from "react-router-dom"
+import { MyContext } from '../../App';
 function BestCollection() {
     const [hoveredProduct, setHoveredProduct] = React.useState(null);
+    const {handleAddProduct} = useContext(MyContext)
     const products = [
         {
             id: 1,
@@ -150,14 +152,15 @@ function BestCollection() {
                                 </div>
                             </div>
 
-                            <div className={`absolute top-0 bg-black opacity-90 text-white w-[93%] border flex flex-col justify-center cursor-pointer items-center border-gray-300 ml-3 my-3 ${hoveredProduct !== items.id ? 'hidden' : ''}`} style={{ height: hoveredProduct === items.id ? 'calc(100% - 25px)' : '0' }}>
+                            <div className={`absolute top-0 bg-[#454545]  text-white w-[93%] border flex flex-col justify-center cursor-pointer items-center border-gray-300 ml-3 my-3 ${hoveredProduct !== items.id ? 'hidden' : ''}`} style={{ height: hoveredProduct === items.id ? 'calc(100% - 25px)' : '0' }}>
                                 <div className='flex flex-col gap-5 justify-center items-center'>
-                                    <p className='font-semibold 2xl:text-2xl'>{items.productName}</p>
+                                    <p className='font-semibold 2xl:text-2xl w-[85%] text-center'>{items.productName}</p>
                                     <p className=''>{items.price}</p>
                                     <Link to={`/best_collection/${items.id}`} state={{ items }}>
                                         <button><FaArrowsToDot /></button>
                                     </Link>
-                                    <button>Add cart</button>
+                                    <Link to="/"><button onClick={() => handleAddProduct(items)} className="bg-blue-950 p-1 px-3 rounded-md text-white">Add to Cart</button></Link>
+
                                 </div>
                             </div>
                         </div>

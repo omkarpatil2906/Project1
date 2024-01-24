@@ -98,7 +98,7 @@ function Chairs() {
                                             </div>
                                         </div>
 
-                                        <div className={`absolute top-0 bg-black opacity-70 text-white w-[93%] border flex flex-col justify-center cursor-pointer items-center border-gray-300 ml-3 my-3 ${hoveredProduct !== items.id ? 'hidden' : ''}`} style={{ height: hoveredProduct === items.id ? 'calc(100% - 25px)' : '0' }}>
+                                        <div className={`absolute top-0 bg-[#454545] text-white w-[93%] border flex flex-col justify-center cursor-pointer items-center border-gray-300 ml-3 my-3 ${hoveredProduct !== items.id ? 'hidden' : ''}`} style={{ height: hoveredProduct === items.id ? 'calc(100% - 25px)' : '0' }}>
 
                                             <div className='flex flex-col gap-5 justify-center items-center'>
                                                 <p className='font-semibold 2xl:text-2xl text-center w-[80%]'>{items.productName}</p>
@@ -106,7 +106,7 @@ function Chairs() {
                                                 <Link to={`/chairs/${items.id}`} state={{ items }}>
                                                     <button><FaArrowsToDot /></button>
                                                 </Link>
-                                                <Link to="/"><button onClick={() => handleAddProduct(items)}>Add to Cart</button></Link>
+                                                <Link to="/chairs"><button onClick={() => handleAddProduct(items)} className="bg-blue-950 p-1 px-3 rounded-md text-white">Add to Cart</button></Link>
                                             </div>
                                         </div>
                                     </div>
