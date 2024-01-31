@@ -9,6 +9,7 @@ module.exports = {
         sf: {'min': '240px', 'max': '380px'},
         '2xl':'1800px'
       },
+      
        fontFamily:{
         Raleway:[ 'Raleway', 'sans-serif'],
         Libre:['Libre Baskerville', 'serif'],
@@ -19,3 +20,4 @@ module.exports = {
   },
   plugins: [require("daisyui")],
 }
+

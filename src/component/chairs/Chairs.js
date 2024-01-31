@@ -10,7 +10,7 @@ function Chairs() {
 
     const [hoveredProduct, setHoveredProduct] = useState(null)
 
-    const {handleAddProduct} = useContext(MyContext)
+    const { handleAddProduct } = useContext(MyContext)
 
 
 
@@ -73,7 +73,7 @@ function Chairs() {
 
                 <div>
                     <div className="flex justify-end lg:mr-24 my-12">
-                        <label className="p-2">Sorted by:-</label><select  onChange={handleOnChage} className="border p-2">
+                        <label className="p-2">Sorted by:-</label><select onChange={handleOnChage} className="border p-2">
                             <option value="highTolow">Price: High To Low</option>
                             <option value="lowTohigh">Price: Low To High</option>
                             <option value="AtoZ">A To Z</option>
@@ -89,14 +89,15 @@ function Chairs() {
                             {
                                 chairs.map((items) => (
                                     <div key={items.id} className="relative" onMouseEnter={() => setHoveredProduct(items.id)} onMouseLeave={() => setHoveredProduct(null)}>
-
-                                        <div className={`bg-white w-[93%] border border-gray-300 ml-3 my-3 ${hoveredProduct === items.id ? 'hidden' : ''}`}>
-                                            <img src={items.image.img} alt="" className='w-[400px] h-[400px] md:h-[250px] object-cover p-2  md:px-0 xl:p-2' />
-                                            <div className='border-t border-gray-300 '>
-                                                <p className='m-2 font-semibold 2xl:text-2xl'>{items.productName}</p>
-                                                <p className='mt-12 m-2'>{items.price}</p>
+                                        <Link to={`/chairs/${items.id}`} state={{ items }}>
+                                            <div className={`bg-white w-[93%] border border-gray-300 ml-3 my-3 ${hoveredProduct === items.id ? 'hidden' : ''}`}>
+                                                <img src={items.image.img} alt="" className='w-[400px] h-[400px] md:h-[250px] object-cover p-2  md:px-0 xl:p-2' />
+                                                <div className='border-t border-gray-300 '>
+                                                    <p className='m-2 font-semibold 2xl:text-2xl'>{items.productName}</p>
+                                                    <p className='mt-12 m-2'>{items.price}</p>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </Link>
 
                                         <div className={`absolute top-0 bg-[#454545] text-white w-[93%] border flex flex-col justify-center cursor-pointer items-center border-gray-300 ml-3 my-3 ${hoveredProduct !== items.id ? 'hidden' : ''}`} style={{ height: hoveredProduct === items.id ? 'calc(100% - 25px)' : '0' }}>
 

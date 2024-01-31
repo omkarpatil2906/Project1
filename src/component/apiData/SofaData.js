@@ -14,6 +14,8 @@ const initialSofa = [
             img8:"https://ii1.pepperfry.com/media/catalog/product/b/o/1600x800/bonito-velvet-2-seater-sofa-in-wine-colour-bonito-velvet-2-seater-sofa-in-wine-colour-t8xfly.jpg",
 
         },
+        width: 300,
+        height: 200,
         productName: 'Bonito Velvet 2 Seater Sofa in Wine Colour',
         productBrand:'By Casacraft from Pepperfry',
         price: 36249,
@@ -254,124 +256,7 @@ const initialSofa = [
             sku:"FN2053222-S-PM33832",
         }
     },
-    // {
-    //     id: 9,
-    //     image: {
-    //         img:"",
-    //         img1:"",
-    //         img2:"",
-    //         img3:"",
-    //         img4:"",
-    //         img5:"",
-    //         img6:"",
-    //         img7:"",
-    //         img8:"",
-    //     },
-    //     productName: 'Alfredo 1 Seat Sofa',
-    //     price: 41599,
-
-    //     productDetails:{
-    //         brand:"",
-    //         assembly:"",
-    //         dimensionCM:"",
-    //         dimensionIC:"",
-    //         material:"",
-    //         room:"",
-    //         height:"",
-    //         warranty:"",
-    //         weight:"",
-    //         sku:"",
-    //     }
-       
-    // },
-    // {
-    //     id: 10,
-    //     image: {
-    //         img:"",
-    //         img1:"",
-    //         img2:"",
-    //         img3:"",
-    //         img4:"",
-    //         img5:"",
-    //         img6:"",
-    //         img7:"",
-    //         img8:"",
-    //     },
-    //     productName: 'Alfredo 1 Seat Sofa',
-    //     price: 41599,
-
-    //     productDetails:{
-    //         brand:"",
-    //         assembly:"",
-    //         dimensionCM:"",
-    //         dimensionIC:"",
-    //         material:"",
-    //         room:"",
-    //         height:"",
-    //         warranty:"",
-    //         weight:"",
-    //         sku:"",
-    //     }
-    // },
-    // {
-    //     id: 11,
-    //     image: {
-    //         img:"",
-    //         img1:"",
-    //         img2:"",
-    //         img3:"",
-    //         img4:"",
-    //         img5:"",
-    //         img6:"",
-    //         img7:"",
-    //         img8:"",
-    //     },
-    //     productName: 'Alfredo 1 Seat Sofa',
-    //     price: 41599,
-
-    //     productDetails:{
-    //         brand:"",
-    //         assembly:"",
-    //         dimensionCM:"",
-    //         dimensionIC:"",
-    //         material:"",
-    //         room:"",
-    //         height:"",
-    //         warranty:"",
-    //         weight:"",
-    //         sku:"",
-    //     }
-    // },
-
-    // {
-    //     id: 12,
-    //     image: {
-    //         img:"",
-    //         img1:"",
-    //         img2:"",
-    //         img3:"",
-    //         img4:"",
-    //         img5:"",
-    //         img6:"",
-    //         img7:"",
-    //         img8:"",
-    //     },
-    //     productName: 'Alfredo 1 Seat Sofa',
-    //     price: 41599,
-
-    //     productDetails:{
-    //         brand:"",
-    //         assembly:"",
-    //         dimensionCM:"",
-    //         dimensionIC:"",
-    //         material:"",
-    //         room:"",
-    //         height:"",
-    //         warranty:"",
-    //         weight:"",
-    //         sku:"",
-    //     }
-    // },
+ 
 ]
 
 

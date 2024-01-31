@@ -1,15 +1,14 @@
 
-
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import RoutingPages from './component/rounting/RoutingPages';
 import Swal from 'sweetalert2';
-
-
+import Loader from './component/loader/Loader';
 
 export const MyContext = createContext()
 
 function App() {
   const [cartItems, setCartItems] = useState([])
+  const [loader, setLoader] = useState(true);
 
   const handleAddProduct = (product) => {
     const productExist = cartItems.find((item) => item.id === product.id);
@@ -34,6 +33,22 @@ function App() {
     }
   };
 
+  const handleViewProduct = (product) => {
+    const productExist = cartItems.find((item) => item.id === product.id);
+
+    if (productExist) {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === product.id
+            ? { ...productExist, quantity: productExist.quantity + 1 }
+            : item
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    }
+  };
+
 
   const haddleRemoveProduct = (product) => {
     let ProductExist = cartItems.find((item) => item.id === product.id);
@@ -47,17 +62,25 @@ function App() {
       )
     }
   }
-  // const handleCartCleareance = () => {
-  //   setCartItems([])
-  // }
-  const removeUniqueProduct = (index) => {
-    setCartItems(cartItems.filter((i) => i !== index))
-  }
+
+ const removeUniqueProduct = (index) => {
+  setCartItems(cartItems.filter((item, i) => i !== index));
+};
+
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(false)
+    }, 2500)
+  })
+
 
   return (
     <div>
-      <MyContext.Provider value={{ cartItems, handleAddProduct, haddleRemoveProduct, removeUniqueProduct }}>
-        <RoutingPages />
+      <MyContext.Provider value={{ cartItems, handleAddProduct, haddleRemoveProduct, removeUniqueProduct, handleViewProduct}}>
+        
+      {loader ? <Loader />:<RoutingPages />}
+       
       </MyContext.Provider>
     </div>
   );

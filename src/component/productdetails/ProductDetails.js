@@ -5,16 +5,14 @@ import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
 import StarIcon from '@mui/icons-material/Star';
 import { MyContext } from '../../App';
-import ReactImageMagnify from 'react-image-magnify';
+
 
 
 function ProductDetails() {
-  const { handleAddProduct } = useContext(MyContext)
+  const { handleAddProduct, handleViewProduct } = useContext(MyContext)
   const { state } = useLocation();
   const { items } = state || {};
   const [selectedImage, setSelectedImage] = useState(items.image.img);
-  
-
 
   //rating star use mui
   const [hover, setHover] = React.useState(-1);
@@ -64,31 +62,10 @@ function ProductDetails() {
     <div>
       <Navbar />
       <div className='flex justify-center items-center '>
-        <div className=' lg:flex  bg-white'>
+        <div className=' lg:flex bg-white'>
           <div className='w-[100%]  p-12'>
             <div className='w-[75%] space-y-3 mx-auto'>
-              {/* <ReactImageMagnify {...{
-                smallImage : {
-                  alt: 'Wristwatch by Ted Baker London',
-                  isFluidWidth: true,
-                  src: selectedImage,
-                },
-                largeImage : {
-                  src: selectedImage,
-                  width: 1790,
-                  height: 1080,
-                },
-                enlargedImageContainerStyle : {
-                  zIndex: 500,
-                },
-                enlargedImageContainerDimensions : {
-                  width: "100%",
-                  height: "100%",
-                },
-              }} /> */}
-
               <img src={selectedImage} className='w-[1000px] ' alt="" />
-
               <div>
                 <div id="slider" style={{ overflowX: 'scroll', whiteSpace: 'nowrap' }} className='flex gap-2 w-[100%]'>
                   <button id="slideLeft" onClick={handleSlideLeft}></button>
@@ -115,7 +92,7 @@ function ProductDetails() {
             </Box>
             <div className='flex gap-3 py-6'>
               <Link to="/"><button className='text-xs border  border-[#222831] p-2 px-3 lg:px-5 font-Raleway' onClick={() => handleAddProduct(items)}>ADD TO CART</button></Link>
-              <Link to="buy_now"><button className='text-xs border border-black bg-[#222831] text-white p-2 px-6 font-Raleway lg:px-12'>BUY NOW</button></Link>
+              <Link to="/buy_now"><button className='text-xs border border-black bg-[#222831] text-white p-2 px-6 font-Raleway lg:px-12' onClick={() => handleViewProduct(items)}>BUY NOW</button></Link>
             </div>
             <hr />
             <div className='py-12 lg:px-0'>

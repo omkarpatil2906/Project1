@@ -9,6 +9,7 @@ import TermsCondition from '../terms/TermsCondition'
 import ProductDetails from '../productdetails/ProductDetails'
 import Footer from '../footer/Footer'
 import AddToCart from '../addtocart/AddToCart'
+import Checkout from '../checkout/Checkout'
 
 function RoutingPages() {
   return (
@@ -24,7 +25,8 @@ function RoutingPages() {
         <Route path="/product/:id" element={<ProductDetails/>} />
         <Route path="/best_collection/:id" element={<ProductDetails/>} />
         <Route path="/addtocart" element={<AddToCart/>}/>
-        <Route path='buy_now' element={<AddToCart/>}/>
+        <Route path='/buy_now' element={<AddToCart/>}/>
+        <Route path='/checkout' element={<Checkout/>}/>
       </Routes>
       <Footer />
       

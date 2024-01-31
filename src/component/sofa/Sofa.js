@@ -5,40 +5,35 @@ import initialSofa from "../apiData/SofaData";
 import { Link } from 'react-router-dom'
 import { MyContext } from "../../App";
 
-
-
 function Sofa() {
 
     const [hoveredProduct, setHoveredProduct] = useState(null);
     const [sofa, setSofa] = useState(initialSofa)
-    const {handleAddProduct} = useContext(MyContext)
+    const { handleAddProduct } = useContext(MyContext)
 
     const handleOnChage = (e) => {
         const sortType = e.target.value;
 
         if (sortType === "AtoZ") {
             const sortedSofa = initialSofa.slice().sort((a, b) => a.productName.localeCompare(b.productName))
-
             setSofa(sortedSofa)
         }
 
         if (sortType === "ZtoA") {
             const sortedSofa = initialSofa.slice().sort((a, b) => b.productName.localeCompare(a.productName));
             setSofa(sortedSofa)
-
         }
+
         if (sortType === "lowTohigh") {
             const sortedSofa = initialSofa.slice().sort((a, b) => a.price - b.price);
             setSofa(sortedSofa);
-          }
-          
-         
+        }
 
-          if (sortType === "highTolow") {
+        if (sortType === "highTolow") {
             const sortedSofa = initialSofa.slice().sort((a, b) => b.price - a.price);
             setSofa(sortedSofa);
-          }
-          
+        }
+
 
     }
     return (
@@ -94,7 +89,6 @@ function Sofa() {
                                             <Link to={`/sofa/${items.id}`} state={{ items }}>
                                                 <button><FaArrowsToDot /></button>
                                             </Link>
-                                            
                                             <Link to="/sofa"><button onClick={() => handleAddProduct(items)} className="bg-blue-950 p-1 px-3 rounded-md text-white" >Add to Cart</button></Link>
                                         </div>
                                     </div>

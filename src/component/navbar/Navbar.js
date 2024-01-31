@@ -37,12 +37,10 @@ function Navbar() {
         </Link>
           {<MenuIcon style={{ fontSize: 40 }} />}
         </button>
-        <ul className={open ? "fixed top-0 left-[20%] h-screen w-[80%] bg-white ease-in-out duration-700 lg:hidden " : "ease-in-out right-[-100%] w-full fixed  bg-white lg:hidden "}>
-          <div className='grid justify-end '>
-            <button onClick={() => setOpen(false)}><CloseIcon style={{ fontSize: 40 }} /></button>
-          </div>
+        <ul className={open ? "fixed top-0 left-[20%] h-screen w-[80%] bg-white ease-in-out duration-300 transition-all lg:hidden " : "right-[-100%] w-full fixed  bg-white lg:hidden "}>
+         <button onClick={() => setOpen(false)} className='fixed right-0 '><CloseIcon style={{ fontSize: 40 }} /></button>
           <div className='mt-20'>
-            <li className='m-2 cursor-pointer border p-3'><Link to="/">Home</Link> </li>
+            <li className='m-2 cursor-pointer border p-3 '><Link to="/">Home</Link> </li>
             <li className='m-2 cursor-pointer border p-3'><Link to="/sofa">Sofa</Link> </li>
             <li className='m-2 cursor-pointer border p-3'><Link to="/chairs">Chairs</Link> </li>
             <li className='m-2 cursor-pointer border p-3'><Link to="/contact">Contact</Link> </li>
